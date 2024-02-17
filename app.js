@@ -62,9 +62,10 @@ function create_element(hh, mm, ss , totalTime) {
         if(totalTime >0){
          --totalTime;
 
-         hours.value = Math.floor(totalTime/3600)
-         minutes.value = Math.floor((totalTime% 3600)/60)
-         seconds.value = Math.floor(totalTime%60)
+         hours.value = Math.floor(totalTime / 3600);
+
+         minutes.value = Math.floor((totalTime % 3600) / 60);
+         seconds.value = Math.floor(totalTime % 60);
         }
         else{
             timersItem.className= "completed-timer"
