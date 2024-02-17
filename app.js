@@ -76,6 +76,14 @@ function runTimer(totalTime, timersItem) {
                 <p>Timer Is Up!</p>
                 <button class="Delete stop">Stop</button>
             `;
+            let stopButtons = document.querySelectorAll(".stop")
+            stopButtons = Array.from(stopButtons)
+            stopButtons.map( elem => {
+                elem.addEventListener("click",(e)=>{
+                    e.target.parentElement.remove()
+                })
+            })
+            // console.log(stopButtons)
         }
     }, 1000);
 }
