@@ -26,7 +26,7 @@
 }
 
 .timers-form {
-    width: 50%;
+    width: 849px;
     height: 12vh;
 }
 
@@ -96,6 +96,7 @@ form>button:hover {
     opacity: 0.9;
 }
 
+
 /* section 2 current-timers */
 
 #current-timers {
@@ -104,7 +105,7 @@ form>button:hover {
     justify-content: center;
     align-items: center;
     gap: 25px;
-    width: 50%;
+    width: 849px;
 }
 
 #current-timers-head {
@@ -143,26 +144,34 @@ form>button:hover {
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    width: 100%;
+    width: 849px;
     padding: 25px;
     border-radius: 20px;
 }
 
-.completed-timer{
-    background-color: #F0F757;
+.completed-timer {
     display: flex;
     align-items: center;
+    background-color: #F0F757;
+    width: 849px;
+    height: 12vh;
+    border-radius: 20px;
+    position: relative;
 }
-.completed-timer>p{
-font-size: 48px;
-font-weight: 500;
-line-height: 56px;
-letter-spacing: 0em;
-text-align: center;
-color: #34344A;
-margin-left: 30%;
+
+.completed-timer>p {
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 56px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #34344A;
+    margin-left: 30%;
 }
-.stop{
+
+.stop {
     background-color: #34344A;
     color: white;
+    position: absolute;
+    right: 5%;
 }

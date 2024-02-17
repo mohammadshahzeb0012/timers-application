@@ -1,18 +1,22 @@
 const form = document.getElementById("form");
 const timersList = document.getElementById("current-timers-list");
+const timerText = document.getElementById("timer-text")
 
 let uniqueId = 0;
+let numberOfActiveTimers = 0;
 
 function updateTime(hh, mm, ss) {
     let totalTime = hh * 3600 + mm * 60 + ss;
     if (totalTime > 0) {
         create_element(hh, mm, ss,totalTime);
+        numberOfActiveTimers++
     }
 }
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     uniqueId++;
+
     let hh = parseInt(document.getElementById("hour").value);
     let mm = parseInt(document.getElementById("minute").value);
     let ss = parseInt(document.getElementById("second").value);
@@ -43,6 +47,7 @@ function create_element(hh, mm, ss , totalTime) {
     const deleteButton = timersItem.querySelector(".Delete");
     deleteButton.addEventListener("click", (e) => {
         e.target.closest(".running-timer").remove();
+        numberOfActiveTimers--;
     });
 
     
@@ -58,20 +63,19 @@ function create_element(hh, mm, ss , totalTime) {
          --totalTime;
 
          hours.value = Math.floor(totalTime/3600)
-         minutes.value = Math.floor(totalTime%3600)/60
-         seconds.value = Math.floor(totalTime%66)
+         minutes.value = Math.floor((totalTime% 3600)/60)
+         seconds.value = Math.floor(totalTime%60)
         }
         else{
-            timersItem.id= "completed-timer"
-            timersItem.innerHTML = `
-         
+            timersItem.className= "completed-timer"
+            timersItem.innerHTML = ` 
             <p>Timer Is Up !</p>
             <button class="Delete stop">Stop</button>
-    
             `
         }
      },1000)
    }
    runTimer(totalTime)
+
 
 }
